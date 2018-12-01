@@ -15,10 +15,17 @@ import java.security.Key;
 import java.security.KeyStore;
 
 @RequiresApi(api = Build.VERSION_CODES.M)
-class EncriptAboveApi23 extends BaseEncriptor implements Encriptor {
+class EncryptorAboveApi23 extends BaseEncryptor implements Encryptor {
+
+    //region Private members
+
     private KeyStore keyStore;
 
-    EncriptAboveApi23(Context context, SharedPreferences sharedPreferences) {
+    //endregion
+
+    //region C'tor
+
+    EncryptorAboveApi23(Context context, SharedPreferences sharedPreferences) {
         super(context, sharedPreferences);
 
         try {
@@ -44,6 +51,10 @@ class EncriptAboveApi23 extends BaseEncriptor implements Encriptor {
             e.printStackTrace();
         }
     }
+
+    //endregion
+
+    //region Factory methods
 
     @Override
     public Key getSecretKey() {
@@ -87,4 +98,6 @@ class EncriptAboveApi23 extends BaseEncriptor implements Encriptor {
 
         return "";
     }
+
+    //endregion
 }

@@ -7,14 +7,24 @@ import android.os.Build;
 import android.text.TextUtils;
 
 public class EncryptionManager {
-    private static final String SHARED_PREFS_KEY =
-            "com.avivvegh.encryption.SHARED_PREFS_KEY";
+
+    //region Const
+
+    private static final String SHARED_PREFS_KEY = "com.avivvegh.encryption.SHARED_PREFS_KEY";
+
+    //endregion
+
+    //region Private members
 
     private static EncryptionManager instance;
-
-    private Encriptor encriptor;
     private static Context applicationContext;
+
+    private Encryptor encryptor;
     private SharedPreferences sharedPreferences;
+
+    //endregion
+
+    //region LifeCycle
 
     public static EncryptionManager getInstance() {
         if (instance == null) {
@@ -41,19 +51,25 @@ public class EncryptionManager {
                 getSharedPreferences(SHARED_PREFS_KEY, Context.MODE_PRIVATE);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            encriptor = new EncriptAboveApi23(applicationContext, sharedPreferences);
+            encryptor = new EncryptorAboveApi23(applicationContext, sharedPreferences);
         } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR2) {
-            encriptor = new EncriptAboveApi18(applicationContext, sharedPreferences);
+            encryptor = new EncryptorAboveApi18(applicationContext, sharedPreferences);
         } else {
-            encriptor = new EncriptBelowApi18(applicationContext, sharedPreferences);
+            encryptor = new EncryptorBelowApi18(applicationContext, sharedPreferences);
         }
     }
 
+    //endregion
+
+    //region Public methods
+
     public String encrypt(String text) {
-        return !TextUtils.isEmpty(text) ? encriptor.encrypt(text) : null;
+        return !TextUtils.isEmpty(text) ? encryptor.encrypt(text) : null;
     }
 
     public String decrypt(String text) {
-        return !TextUtils.isEmpty(text) ? encriptor.decrypt(text) : null;
+        return !TextUtils.isEmpty(text) ? encryptor.decrypt(text) : null;
     }
+
+    //endregion
 }

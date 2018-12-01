@@ -6,7 +6,7 @@ import android.util.Base64;
 
 import java.security.SecureRandom;
 
-abstract class BaseEncriptor {
+abstract class BaseEncryptor {
 
     // region Const
 
@@ -26,14 +26,24 @@ abstract class BaseEncriptor {
     
     //endregion
 
+    //region Private members
+
     SharedPreferences sharedPreferences;
     Context applicationContext;
 
-    BaseEncriptor(Context applicationContext, SharedPreferences sharedPreferences) {
+    //endregion
+
+    //region C'tor
+
+    BaseEncryptor(Context applicationContext, SharedPreferences sharedPreferences) {
         this.sharedPreferences = sharedPreferences;
         this.applicationContext = applicationContext;
         generateAndSaveIV();
     }
+
+    //endregion
+
+    //region Protected methods
 
     void generateAndSaveIV() {
         if (sharedPreferences.getString(IV_X, "").equals("")) {
@@ -49,4 +59,6 @@ abstract class BaseEncriptor {
         String prefIV = sharedPreferences.getString(IV_X, "");
         return Base64.decode(prefIV, Base64.DEFAULT);
     }
+
+    //endregion
 }

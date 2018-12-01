@@ -25,12 +25,22 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR2)
-class EncriptAboveApi18 extends BaseEncriptor implements Encriptor {
+class EncryptorAboveApi18 extends BaseEncryptor implements Encryptor {
+    //region Const
+
     private static final String AES_KEY = "AXL";
+
+    //endregion
+
+    //region Private members
 
     private KeyStore keyStore;
 
-    EncriptAboveApi18(Context context, SharedPreferences sharedPreferences) {
+    //endregion
+
+    //region C'tor
+
+    EncryptorAboveApi18(Context context, SharedPreferences sharedPreferences) {
         super(context, sharedPreferences);
 
         try {
@@ -66,6 +76,10 @@ class EncriptAboveApi18 extends BaseEncriptor implements Encriptor {
             e.printStackTrace();
         }
     }
+
+    //endregion
+
+    //region Private methods
 
     private void generateAndStoreAESKey() {
         String encryptedKeyB64 = sharedPreferences.getString(AES_KEY,
@@ -135,6 +149,10 @@ class EncriptAboveApi18 extends BaseEncriptor implements Encriptor {
         return new byte[0];
     }
 
+    //endregion
+
+    //region Factory methods
+
     @Override
     public Key getSecretKey() {
         String encryptedKeyB64 = sharedPreferences.getString(AES_KEY, null);
@@ -190,4 +208,6 @@ class EncriptAboveApi18 extends BaseEncriptor implements Encriptor {
 
         return "";
     }
+
+    //endregion
 }

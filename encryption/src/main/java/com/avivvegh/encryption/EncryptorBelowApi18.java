@@ -9,10 +9,17 @@ import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 import java.security.Key;
 
-class EncriptBelowApi18 extends BaseEncriptor implements Encriptor {
-    EncriptBelowApi18(Context context, SharedPreferences sharedPreferences) {
+class EncryptorBelowApi18 extends BaseEncryptor implements Encryptor {
+
+    //region C'tor
+
+    EncryptorBelowApi18(Context context, SharedPreferences sharedPreferences) {
         super(context, sharedPreferences);
     }
+
+    //endregion
+
+    //region Factory methods
 
     @Override
     public Key getSecretKey() {
@@ -65,4 +72,6 @@ class EncriptBelowApi18 extends BaseEncriptor implements Encriptor {
 
         return "";
     }
+
+    //endregion
 }
