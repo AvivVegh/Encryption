@@ -1,8 +1,6 @@
 Encryption
 ============
 
-![Logo](website/static/logo.png)
-
 Encrypt and decrypt values for any Android API version.
 
 
