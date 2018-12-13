@@ -34,7 +34,7 @@ public class EncryptionManager {
         return instance;
     }
 
-    public static void initalize(Application application) {
+    public static void initialize(Application application) {
         if (application == null) {
             throw new RuntimeException("Application is null");
         }
@@ -44,7 +44,7 @@ public class EncryptionManager {
 
     private EncryptionManager() {
         if (applicationContext == null) {
-            throw new RuntimeException("EncryptionManager is not initialize please call EncryptionManager.initalize");
+            throw new RuntimeException("EncryptionManager is not initialize please call EncryptionManager.initialize");
         }
 
         sharedPreferences = applicationContext.

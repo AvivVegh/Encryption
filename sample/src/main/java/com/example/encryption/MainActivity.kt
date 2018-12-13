@@ -11,7 +11,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val encryptedString1 = EncryptionManager.getInstance().encrypt("123")
+
+        val encryptedString1 = EncryptionManager.getInstance().encrypt("foo")
         val encryptedString2 = EncryptionManager.getInstance().encrypt("1234")
         Log.d("test", "encypted 1= " + encryptedString1)
         Log.d("test", "encypted 2= " + encryptedString2)
