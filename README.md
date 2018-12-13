@@ -22,8 +22,8 @@ public class ExampleApplication extends Application {
 * Usage:
 
 ```java
-var encryptedValue = EncryptionManager.getInstance().encrypt("foo")
-var originValue = EncryptionManager.getInstance().decrypt(encryptedValue)
+val encryptedValue = EncryptionManager.getInstance().encrypt("foo")
+val originValue = EncryptionManager.getInstance().decrypt(encryptedValue)
 
 ```
 
