@@ -48,7 +48,7 @@ ext {
     siteUrl = 'https://github.com/AvivVegh/Encryption'
     gitUrl = 'https://github.com/AvivVegh/Encryption.git'
 
-    libraryVersion = '1.0.1'
+    libraryVersion = '1.0.2'
 
     developerId = 'av'
     developerName = 'Aviv Vegh'
