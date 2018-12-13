@@ -44,7 +44,7 @@ dependencies {
 Library projects
 --------------------
 
-To use Butter Knife in a library, add the plugin to your `buildscript`:
+To use Encryption in a library, add the plugin to your `buildscript`:
 
 ```groovy
 buildscript {
