@@ -21,7 +21,7 @@ public class ExampleApplication extends Application {
 
 * Usage:
 
-```java
+```kotlin
 val encryptedValue = EncryptionManager.getInstance().encrypt("foo")
 val originValue = EncryptionManager.getInstance().decrypt(encryptedValue)
 
